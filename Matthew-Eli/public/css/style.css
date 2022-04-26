@@ -1,0 +1,218 @@
+body{
+    --color-bg: #19063A;
+    --color-hl: #FFF238;
+    --color-hl-light: #FFF78B;
+    --color-fg: #53A7D0;
+    --color-fg-dark: #065F8A;
+
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    font-size: 16pt;
+    margin: 0;
+}
+
+::selection {
+    color: var(--color-bg);
+    background: var(--color-fg);
+}
+
+header {
+    background: var(--color-fg-dark);
+    color: var(--color-hl);
+    padding: 15px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+header h1::selection {
+    color: var(--color-fg-dark);
+    background: var(--color-hl);
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.small {
+    width: 50%;
+}
+
+.sideways {
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.center {
+    text-align: center;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.canvas-container  {
+    width: min(65vh, 65vw);
+    margin: 0 auto;
+}
+
+canvas {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    /*margin: 1em;*/
+}
+
+section {
+    width: 100%;
+    flex: 2 1 75%;
+}
+
+.control {
+    text-align: center;
+    margin: 2em;
+}
+
+button {
+    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    font-size: 24pt;
+    font-weight: bold;
+    background: var(--color-hl);
+    color: var(--color-bg);
+    width: 100%;
+    aspect-ratio: 1 / 0.3;
+}
+
+.neon {
+    background: none;
+    color: var(--color-hl);
+    border: 0.125em;
+    border-style: solid;
+    border-color: var(--color-hl);
+    --shadow-size: 0.8em;
+    text-shadow: 0 0 calc(2*var(--shadow-size)) var(--color-hl);
+    box-shadow: inset 0 0 var(--shadow-size) var(--color-hl), 0 0 var(--shadow-size) var(--color-hl);
+    margin-top: 1em;
+    /*margin-bottom: 4em;*/
+    position: relative;
+}
+
+@media (max-width: 50rem) {
+    .sideways {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.neon-blue {
+    padding: 1em;
+    background: none;
+    color: var(--color-fg);
+    border: 0.125em;
+    border-style: solid;
+    border-color: var(--color-fg);
+    --shadow-size: 0.8em;
+    /*text-shadow: 0 0 calc(2*var(--shadow-size)) var(--color-fg);*/
+    box-shadow: inset 0 0 var(--shadow-size) var(--color-fg), 0 0 var(--shadow-size) var(--color-fg);
+    margin-top: 1em;
+    /*margin-bottom: 4em;*/
+    position: relative;
+}
+
+.neon::before {
+    content: "";
+    position: absolute;
+    background: var(--color-hl-light);
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 2em var(--color-hl-light);
+    transition: opacity 100ms ease-in-out;
+    z-index: -1;
+    opacity: 0;
+}
+
+.neon:focus,
+.neon:hover {
+    color: var(--color-bg);
+}
+
+.neon:focus::before,
+.neon:hover::before {
+    opacity: 1;
+}
+
+input {
+    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    font-size: 16pt;
+    font-weight: bold;
+    background: var(--color-hl);
+}
+
+.vk-container {
+    width: 50%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 600px;
+    min-width: 300px;
+    padding-top: 25px;
+    padding-bottom: 50px;
+}
+
+.vk {
+    background: var(--color-fg);
+    border-color: var(--color-bg);
+    border-radius: 15%;
+    border: 3px;
+    border-style: solid;
+    font-family: "Century Gothic",CenturyGothic,AppleGothic,sans-serif;
+    font-size: 36pt;
+    font-weight: bold;
+    color: var(--color-bg);
+    flex-basis: 17%;
+    text-align: center;
+    max-width: 5rem;
+}
+
+.vk:hover {
+    background: #065F8A;
+}
+
+.vk:active {
+    background: var(--color-hl);
+}
+
+.spacer{
+    background: none;
+    max-width: none;
+}
+
+.spacer:hover {
+    background: none;
+}
+
+.spacer:active {
+    background: none;
+}
+
+.info {
+    margin-bottom: 2em;
+}
+
+.go-back{
+    text-align: center;
+}
+.go-back-link:link{
+    color: var(--color-hl);
+}
+.go-back-link:hover{
+    color: var(--color-hl-light);
+}
+.go-back-link:visited{
+    color: var(--color-hl-light);
+}

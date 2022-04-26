@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Tron Game</title>
+    <link href="css/style.css" rel="stylesheet">
+    <script src="js/home.js"></script>
+</head>
+
+
+<body onload="onload();">
+    <script src="/socket.io/socket.io.js"></script>
+    <header>
+        <h1>Tron Game</h1>
+    </header>
+
+    <div class="neon-blue info container">
+        <section>
+            <h2>This is a project for CSE 4300</h2>
+            <p>This is our 4300 project! It is a simple web-based tron game! Tron is a game where you and up to 3 other people all control a light cycle that leaves behind a trail as you drive. Your goal is to avoid hitting any bike's trail for as long as possible.</p>
+            <p>If you would like to host a game, enter the number of players and hit host, then send the generated game code to your friends! If you have been given a game code enter it in the other box, and hit join.</p>
+
+        </section>
+
+        <div class="sideways container">
+                <div class="control container">
+                    <h2>Join a Game!</h2>
+                    <p>Enter a game code provided by a friend!</p>
+                    <input id="joinInput" placeholder="Enter Game Code"></input>
+                    <button class="neon" id="joinButton">Join!</button>
+                </div>
+                <div class="control container">
+                    <h2>Host a Game!</h2>
+                    <p>Create a game with up to 4 players!</p>
+                    <input type="number" id="hostInput" placeholder="Number of players"></input>
+                    <button class="neon" id="hostButton">Host!</button>
+                </div>
+        </div>
+    </div>
+
+</body>
+</html>
