@@ -1,0 +1,4 @@
+All images were from svgrepo.com and were uploaded by user SVG Repo
+Licensed under the CC0 License. Info can be found here: https://www.svgrepo.com/page/licensing
+All images except one were part of the Universe 18 collection
+spacecraft_idle.png is an edited image of spacecraft_accel.png with the fire removed
