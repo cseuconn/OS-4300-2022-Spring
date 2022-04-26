@@ -69,8 +69,8 @@ public class MIS_socket {
     public int modify(int index,int id,String new_data) throws IOException {
         socket= new Socket(InetAddress.getByName("127.0.0.1"),9000);
         OutputStream os = socket.getOutputStream();
-        String String_create=filename+","+index+","+id+","+"modify"+","+new_data;
-        os.write(String_create.getBytes());
+        String String_modify = filename+","+index+","+id+","+"modify"+","+new_data;
+        os.write(String_modify.getBytes());
         socket.shutdownOutput();
 
         InputStream inputStream_rec = socket.getInputStream();
