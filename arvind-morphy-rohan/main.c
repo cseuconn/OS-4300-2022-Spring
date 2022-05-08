@@ -8,6 +8,61 @@
 #include <unistd.h>
 #include <wordexp.h>
 
+typedef struct Command
+{
+    char **args;
+} Command;
+
+int create_process(int in, int out, Command *cmd)
+{
+    pid_t pid;
+
+    if ((pid = fork()) == 0) {
+        if (in != 0) {
+            dup2(in, 0);
+            close(in);
+        }
+
+        if (out != 1) {
+            dup2(out, 1);
+            close(out);
+        }
+
+        return execvp(cmd->args[0], (char *const *)cmd->args);
+    }
+
+    return pid;
+}
+
+int fork_pipes(int n, Command *cmd)
+{
+    pid_t pid;
+    int fd[2];
+    int i;
+
+    // The first process should get input from fd 0
+    int in = 0;
+
+    for (i = 0; i < n - 1; ++i) {
+        pipe(fd);
+
+        // f[1] is the write end of the pipe, we carry in from last iteration
+        create_process(in, fd[1], cmd + i);
+
+        close(fd[1]);
+        // Keep the read end of the pipe
+        in = fd[0];
+    }
+
+    // Last stage: stdin should be the read end of the previous pipe and output to stdout
+    if (in != 0) {
+        dup2(in, 0);
+    }
+
+    return execvp(cmd[i].args[0], (char *const *)cmd[i].args);
+}
+
+// TODO: Parse input to handle pipes
 char **parse_input(char *input)
 {
     char **command = malloc(8 * sizeof(char *));
